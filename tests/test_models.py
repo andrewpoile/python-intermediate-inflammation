@@ -7,7 +7,7 @@ import pytest
 
 import pytest
 
-from inflammation.models import daily_mean, daily_max, daily_min, patient_normalise
+from inflammation.models import daily_mean, daily_max, daily_min, patient_normalise, standard_deviation
 
 
 @pytest.mark.parametrize(
@@ -42,5 +42,5 @@ def test_daily_mean(test,expected):
 ])
 def test_daily_standard_deviation(data, expected_standard_deviation):
     from inflammation.models import s_dev
-    result_data = s_dev(data)['standard deviation']
+    result_data = standard_deviation(data)['standard deviation']
     npt.assert_approx_equal(result_data, expected_standard_deviation)
